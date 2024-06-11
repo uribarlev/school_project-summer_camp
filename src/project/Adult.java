@@ -5,8 +5,7 @@ public class Adult {
 	public String bank;
 	public int hours;
 
-	public Adult() {
-	}
+	public Adult() {}
 
 	public Adult(Person per, String num, int num1) {
 		this.data = per;
