@@ -55,7 +55,7 @@ public class General {
 			str = decipher(temp_p2, str, 0);
 			Helper h = new Helper(temp_p2, str.substring(0, str.indexOf("]")), 0);
 			Group temp = new Group(a, h, n);
-			while (str.charAt(str.indexOf(")") + 1) != ']') {
+			while (str.indexOf("K(")!=-1) {
 				Person temp_p = new Person();
 				str = str.substring(str.indexOf("K(") + 1);
 				str = decipher(temp_p, str, 1);
@@ -443,6 +443,11 @@ public class General {
 									convert(age_text.getText()));
 							Kid temp_kid = new Kid(temp, allergy_text.getText());
 							groups[0].add(temp_kid);
+							try {
+								save();
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							}
 							layout.show(window.getContentPane(), "login_panel");
 						}
 					}
@@ -613,7 +618,7 @@ public class General {
 		// name
 		JPanel name_panel = new JPanel();
 		JLabel name_label = new JLabel("name");
-		JTextField name_text = new JTextField(user_data.getUsername());
+		JTextField name_text = new JTextField(user_data.getName());
 		name_text.setPreferredSize(new Dimension(100, 25));
 		name_panel.add(name_label);
 		name_panel.add(name_text);
